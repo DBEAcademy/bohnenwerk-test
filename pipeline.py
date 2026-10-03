@@ -92,6 +92,7 @@ def transform(df):
     vorher = len(df)
     df = df.drop_duplicates(subset="bestell_id").copy()
     log.info("%d Dubletten entfernt", vorher - len(df))
+    df["einzelpreis"] = df["einzelpreis"].str.replace(",", ".")
     df["land"] = df["land"].str.strip().str.upper()
     menge = pd.to_numeric(df["menge"], errors="coerce")
     df["grund"] = None

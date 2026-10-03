@@ -1,0 +1,32 @@
+# models/schema.yml
+version: 2
+
+models:
+  - name: stg_bestellungen
+    description: Bestellungen mit Bestelldatum, Wochentag und sprechenden Namen.
+    columns:
+      - name: bestell_id
+        description: Eindeutige Nummer der Bestellung, vergeben vom Shop.
+        data_tests:
+          - unique
+          - not_null
+      - name: land
+        description: Lieferland als Kürzel DE, AT oder CH.
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['DE', 'AT', 'CH']
+  - name: dim_produkte
+    description: Eine Zeile je Kaffeesorte mit dem Kilopreis.
+  - name: fct_bestellungen
+    description: Eine Zeile je Bestellung mit Menge, Umsatz, Sorte und Land.
+    columns:
+      - name: sorte
+        description: Name der Kaffeesorte, passt zu dim_produkte.
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_produkte')
+                field: sorte
+  - name: umsatz_je_tag_und_sorte
+    description: Umsatz, verkaufte Kilogramm und Bestellungen je Tag und Sorte.

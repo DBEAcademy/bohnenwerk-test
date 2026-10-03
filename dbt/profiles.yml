@@ -1,0 +1,7 @@
+# profiles.yml
+bohnenwerk:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: ../bohnenwerk.duckdb

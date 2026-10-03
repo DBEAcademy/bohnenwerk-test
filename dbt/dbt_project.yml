@@ -1,0 +1,4 @@
+# dbt_project.yml
+name: bohnenwerk
+version: "1.0"
+profile: bohnenwerk

@@ -1,0 +1,11 @@
+# Dockerfile
+FROM python:3.12-slim
+
+WORKDIR /bohnenwerk
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY pipeline.py .
+
+CMD ["python", "pipeline.py"]

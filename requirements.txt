@@ -1,0 +1,5 @@
+# requirements.txt
+pandas==3.0.6
+duckdb==1.5.6
+pandera==0.33.1
+pytest==9.1.1

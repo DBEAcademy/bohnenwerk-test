@@ -1,0 +1,12 @@
+# .gitignore
+venv/
+__pycache__/
+.pytest_cache/
+*.duckdb
+*.parquet
+*.csv
+pipeline.log
+eingang/
+lake/
+dbt/target/
+dbt/logs/

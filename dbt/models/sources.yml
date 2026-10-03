@@ -1,0 +1,10 @@
+# models/sources.yml
+version: 2
+
+sources:
+  - name: pipeline
+    description: Tabellen, die pipeline.py aus den Tagesdateien befüllt.
+    schema: main
+    tables:
+      - name: bestellungen
+        description: Bereinigte Bestellungen, eine Zeile je Bestellung.
